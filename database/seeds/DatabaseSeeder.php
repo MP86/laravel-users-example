@@ -15,10 +15,13 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         // Clean up
-        DB::table('users')->delete();
+     //   DB::table('users')->delete();
+        DB::table('articles')->delete();
 		
 		// Seed
-        $this->call(UsersSeeder::class);
+    //    $this->call(UsersSeeder::class);
+        $this->call(ArticlesSeeder::class);
+        
 
         Model::reguard();
     }

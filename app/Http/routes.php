@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', 'AccountController@home');
+
+Route::resource('articles', 'ArticlesController');
+	
 Route::resource('users', 'UsersController');
 
-Route::get('home', 'AccountController@home');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -34,6 +37,4 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset')
-
-Route::resource('articles', 'ArticleController')
+Route::post('password/reset', 'Auth\PasswordController@postReset');
